@@ -12,6 +12,10 @@
 		var save = function(task){
 				console.log("Saving "+task.name+ " to DB (from repo service)")
 			};
+
+		var status = function(name){
+			
+		}
 			
 
 

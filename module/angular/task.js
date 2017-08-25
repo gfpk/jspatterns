@@ -10,11 +10,11 @@
 
 		Task.prototype.completeToggle = function(){				
 			if(this.completed){
-				//console.log( "uncompleting task: " + this.name)
+				console.log( "uncompleting task: " + this.name)
 				this.completed = false;
 				this.save();
 			}else{
-				//console.log( "completing task: " + this.name)
+				console.log( "completing task: " + this.name)
 				this.completed = true;
 				this.save();
 			}
@@ -29,7 +29,7 @@
 
 
 		Task.prototype.status =  function(){
-			console.log( this.name+ " status is: " + this.completed )
+			//console.log(TaskRepository.get(this.name).completed);
 		};
 
 		return Task;
