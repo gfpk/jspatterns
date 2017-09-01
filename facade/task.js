@@ -7,34 +7,29 @@ var Task = function(data) {
 }
 
 var TaskService = function() {
-	var complete = function(task) {
+	return{
+		complete : function(task) {
 			task.completed = true;
 			console.log("Completing task: " + task.name);
-		};
-	var	setCompletedDate = function(task) {
+		},
+		setCompletedDate : function(task) {
 			task.completedDate = new Date();
 			console.log(task.name + " completed on " + task.completedDate);
-		};
-	var	notifyCompletion = function (task, user) {
+		},
+		notifyCompletion : function (task, user) {
 			console.log("Notifying "+ user + " of the completion of "+ task.name)
 			
-		};
-	var	save = function(task){
+		},
+		save : function(task){
 			console.log("Saving task: " + task.name);
-		};
-
-	return {
-		complete:complete,
-		setCompletedDate:setCompletedDate,
-		notifyCompletion:notifyCompletion,
-		save:save	
+		}
 	}
 }();
-//Important here
+//Important here--
 var TaskServiceWrapper = function() {
 	var completeAndNotify = function(task){
 		TaskService.complete(myTask);
-		
+
 		if(myTask.completed){
 			TaskService.setCompletedDate(task);
 			TaskService.notifyCompletion(task);
@@ -45,7 +40,7 @@ var TaskServiceWrapper = function() {
 		completeAndNotify:completeAndNotify
 	}
 }();
-//
+//---
 
 var myTask = new Task({
 	name:"My Task",
@@ -54,8 +49,5 @@ var myTask = new Task({
 	user:"SomeUser",
 	completed:false
 });
-
-
-
 
 TaskServiceWrapper.completeAndNotify(myTask);
