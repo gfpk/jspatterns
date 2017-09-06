@@ -1,26 +1,27 @@
 (function(){
-	var app = angular.module("taskManager");
-
-	var taskService = function($http){	
+	var taskService = function(){
 		return{
-			complete : function(task) {
-			task.completed = true;
-				console.log("Completing task: " + task.name);
+			complete:function(task){
+				task.completed = true;
+				console.log("completing task: "+ task.name);
 			},
-			setCompletedDate : function(task) {
+			setCompletedDate:function(task){
 				task.completedDate = new Date();
-				console.log(task.name + " completed on " + task.completedDate);
+				console.log(task.name+" completed on "+ task.completedDate);
 			},
-			notifyCompletion : function (task, user) {
-				console.log("Notifying "+ user + " of the completion of "+ task.name)
+			notifyCopmletion:function(task, user){
 				
+				console.log("notifying "+task.user+" of the completion of task: " +task.name);
 			},
-			save : function(task){
-				console.log("Saving task: " + task.name);
-			}
+			save:function(task) {
+				console.log("Saving task: "+task.name);
+				
+			}		
 		}
-	};
-	
+	}
+
+var app = angular.module("taskManager");
 app.service("taskService", taskService);
+	
 
 }())
